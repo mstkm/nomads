@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Client\CheckoutController;
+use App\Http\Controllers\Client\CheckoutSuccessController;
 use App\Http\Controllers\Client\DetailController;
 
 /*
@@ -19,6 +21,8 @@ use App\Http\Controllers\Client\DetailController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/detail', [DetailController::class, 'index'])->name('detail');
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::get('/success', [CheckoutSuccessController::class, 'index'])->name('success');
 
 // Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
 Route::prefix('admin')
