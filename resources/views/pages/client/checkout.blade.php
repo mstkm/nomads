@@ -1,37 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nomads</title>
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="./frontend/libraries/bootstrap/css/bootstrap.css" />
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
-  <!-- Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <!-- Sass -->
-  <link rel="stylesheet" href="./frontend/styles/main.css">
-</head>
-<body>
-  <!-- Navbar -->
-  <div class="container">
-    <nav class="navbar navbar-expand-lg bg-white">
-      <div class="container-fluid d-flex justify-content-center align-items-center">
-        <div>
-          <a class="navbar-brand" href="index.html">
-            <img src="./frontend/images/nomads_logo/drawable-xhdpi/logo_nomads.png" alt="nomads_logo">
-          </a>
-        </div>
-        <div class="d-none d-lg-block border-start ps-4">
-            <p class="m-0 p-0">Beyond the explorer of the world</p>
-        </div>
-      </div>
-    </nav>
-  </div>
+@extends('layouts.checkout')
 
+@section('title', 'Nomads | Checkout')
+
+@section('content')
   <main>
     <section class="section-details-header"></section>
     <section class="section-details-content container pb-5">
@@ -74,7 +45,7 @@
                 </tr>
                 <tr>
                   <td class="user-going py-2">
-                    <img src="./frontend/images/user2.png" alt="user2">
+                    <img src="{{ url('./frontend/images/user2.png') }}" alt="user2">
                   </td>
                   <td>
                     <p class="m-0">John</p>
@@ -94,7 +65,7 @@
                 </tr>
                 <tr>
                   <td class="user-going py-2">
-                    <img src="./frontend/images/user1.png" alt="user1">
+                    <img src="{{  url('./frontend/images/user1.png') }}" alt="user1">
                   </td>
                   <td>
                     <p class="m-0">Jane</p>
@@ -162,7 +133,7 @@
                 <div class="pt-2">
                   <div class="d-flex align-items-center">
                     <div class="me-3">
-                      <img src="./frontend/images/creditcard.png" alt="credit-card" style="border-radius: 0;">
+                      <img src="{{ url('./frontend/images/creditcard.png') }}" alt="credit-card" style="border-radius: 0;">
                     </div>
                     <div>
                       <p class="m-0">PT Nomads ID</p>
@@ -172,7 +143,7 @@
                   </div>
                   <div class="d-flex align-items-center mt-3">
                     <div class="me-3">
-                      <img src="./frontend/images/creditcard.png" alt="credit-card" style="border-radius: 0;">
+                      <img src="{{ url('./frontend/images/creditcard.png') }}" alt="credit-card" style="border-radius: 0;">
                     </div>
                     <div>
                       <p class="m-0">PT Nomads ID</p>
@@ -182,62 +153,14 @@
                   </div>
                 </div>
               </div>
-            </div> 
-            <a href="success-checkout.html" class="btn btn-payment">I Have Made Payment</a>
+            </div>
+            <a href="{{ route('checkout-success') }}" class="btn btn-payment">I Have Made Payment</a>
           </div>
           <div class="d-flex justify-content-center py-3">
-            <a href="details.html" class="btn text-decoration-underline">Cancel Booking</a>
+            <a href="{{ route('detail') }}" class="btn text-decoration-underline">Cancel Booking</a>
           </div>
         </div>
       </div>
     </section>
   </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="border-top border-bottom py-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-sm-6 col-6 text-start">
-            <h5 class="fw-bold">FEATURES</h5>
-            <ul>
-              <li><a href="#">Reviews</a></li>
-              <li><a href="#">Community</a></li>
-              <li><a href="#">Social Media Kit</a></li>
-              <li><a href="#">Affiliate</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 col-6 text-start">
-            <h5 class="fw-bold">ACCOUNT</h5>
-            <ul>
-              <li><a href="#">Refund</a></li>
-              <li><a href="#">Security</a></li>
-              <li><a href="#">Rewards</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 col-6 text-start">
-            <h5 class="fw-bold">COMPANY</h5>
-            <ul>
-              <li><a href="#">Career</a></li>
-              <li><a href="#">Help Center</a></li>
-              <li><a href="#">Media</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-sm-6 col-6 text-start">
-            <h5 class="fw-bold">GET CONNECTED</h5>
-            <p>Jakarta Selatan <br>Indonesia <br>0821-2222-888 <br>support@nomads.id</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="text-center p-3">
-      <p>2023 Copyright Nomads &bull; All right reserved &bull; Made in Jakarta</p>
-    </div>
-  </footer>
-
-  <script src="./frontend/libraries/jquery/jquery-3.6.3.min.js"></script>
-  <!-- <script src="./frontend/libraries/bootstrap/js/bootstrap.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-  <script src="/frontend/libraries/xzoom/xzoom.min.js"></script>
-</body>
-</html>
+@endsection

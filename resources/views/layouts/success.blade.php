@@ -12,7 +12,5 @@
 <body>
   @include('includes.client.navbar-alternate')
   @yield('content')
-  @include('includes.client.footer')
-  @include('includes.client.script')
 </body>
 </html>

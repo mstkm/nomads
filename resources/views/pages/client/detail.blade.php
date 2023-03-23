@@ -52,7 +52,7 @@
           <div class="features row mt-4">
             <div class="col-md-4 d-flex align-items-center">
               <div class="d-flex justify-content-center align-items-center pe-3">
-                <img src="./frontend/images/ticket.png" alt="event" style="width: 45px;">
+                <img src="{{ url('./frontend/images/ticket.png') }}" alt="event" style="width: 45px;">
               </div>
               <div>
                 <h4>Featured Event</h4>
@@ -61,7 +61,7 @@
             </div>
             <div class="col-md-4 d-flex align-items-center">
               <div class="d-flex justify-content-center align-items-center pe-3">
-                <img src="./frontend/images/linguistics.png" alt="event" style="width: 45px;">
+                <img src="{{ url('./frontend/images/linguistics.png') }}" alt="event" style="width: 45px;">
               </div>
               <div>
                 <h4>Language</h4>
@@ -70,7 +70,7 @@
             </div>
             <div class="col-md-4 d-flex align-items-center">
               <div class="d-flex justify-content-center align-items-center pe-3">
-                <img src="./frontend/images/dish.png" alt="event" style="width: 45px;">
+                <img src="{{ url('./frontend/images/dish.png') }}" alt="event" style="width: 45px;">
               </div>
               <div>
                 <h4>Foods</h4>
@@ -85,9 +85,9 @@
           <div class="p-4">
             <h5 class="fw-bold">Members are going</h5>
             <div class="d-flex py-4">
-              <img src="./frontend/images/user1.png" alt="user1">
-              <img src="./frontend/images/user2.png" alt="user2">
-              <img src="./frontend/images/user3.png" alt="user3">
+              <img src="{{ url('./frontend/images/user1.png') }}" alt="user1">
+              <img src="{{ url('./frontend/images/user2.png') }}" alt="user2">
+              <img src="{{ url('./frontend/images/user3.png') }}" alt="user3">
               <div class="members-plus">9+</div>
             </div>
             <div class="pt-3 border-top">
@@ -110,7 +110,7 @@
               </div>
             </div>
           </div>
-          <a href="checkout.html" class="btn btn-join">Join Now</a>
+          <a href="{{ route('checkout') }}" class="btn btn-join">Join Now</a>
         </div>
       </div>
     </div>

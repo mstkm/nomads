@@ -79,7 +79,7 @@
             <p class="m-0 fs-5 fw-bold">NUSA PENIDA, BALI</p>
           </div>
           <div class="d-flex justify-content-center py-4">
-            <a href="/detail" class="btn btn-view-details px-4">View Details</a>
+            <a href="{{ route('detail') }}" class="btn btn-view-details px-4">View Details</a>
           </div>
         </div>
         <div class="section-popular-travel d-flex flex-column rounded mb-3"

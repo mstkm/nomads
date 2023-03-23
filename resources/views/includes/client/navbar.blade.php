@@ -3,8 +3,8 @@
   <nav class="navbar navbar-expand-lg bg-white">
     <div class="container-fluid d-flex">
       <div class="flex-grow-1">
-        <a class="navbar-brand" href="#">
-          <img src="/frontend/images/nomads_logo/drawable-xhdpi/logo_nomads.png" alt="nomads_logo">
+        <a class="navbar-brand" href="{{ route('home') }}">
+          <img src="{{ url('/frontend/images/nomads_logo/drawable-xhdpi/logo_nomads.png') }}" alt="nomads_logo">
         </a>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item pe-5">
-            <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
+            <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="{{ route('home') }}">Home</a>
           </li>
           <li class="nav-item pe-5">
             <a class="nav-link {{ Request::is('detail') ? 'active' : '' }}" href="#">Paket Travel</a>
