@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Client\DetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/detail', [DetailController::class, 'index'])->name('detail');
 
 // Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
 Route::prefix('admin')

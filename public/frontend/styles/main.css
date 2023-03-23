@@ -1,0 +1,259 @@
+body {
+  background-color: #ffffff;
+  font-family: "Assistant", sans-serif;
+  color: #071c4d;
+}
+
+.navbar .nav-link {
+  color: #071c4d;
+}
+.navbar .nav-link.active {
+  color: #071c4d !important;
+  font-weight: 600;
+}
+
+.navbar-brand img {
+  max-height: 40px;
+}
+
+.btn-login {
+  background-color: #071c4d;
+  color: #ffffff;
+}
+.btn-login:hover {
+  background-color: #0643d1;
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .btn-login {
+    background-color: #071c4d;
+    width: 100px;
+    color: #ffffff;
+    border-radius: 0;
+    margin-top: -28px !important;
+    margin-bottom: -28px !important;
+    margin-right: -12px !important;
+    margin-left: -12px !important;
+  }
+  .btn-login:hover {
+    background-color: #0643d1;
+    color: #ffffff;
+  }
+}
+header {
+  color: #ffffff;
+  padding: 180px 0 165px;
+  background-image: url(../images/beach.jpg);
+  background-size: cover;
+  margin-top: -60px;
+}
+header h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  font-size: 50px;
+}
+header p {
+  font-size: 22px;
+}
+header .btn-get-started {
+  background-color: #fc7205;
+  color: #ffffff;
+}
+header .btn-get-started:hover {
+  background-color: #ff8c30;
+  color: #ffffff;
+}
+
+main .section-stats {
+  background-color: #ffffff;
+  width: 80%;
+  padding: 10px 0;
+  margin-top: -45px;
+}
+main .section-stats .stats-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .section-stats .stats-detail h2 {
+  margin: 0;
+}
+main .section-stats .stats-detail p {
+  margin: 0;
+}
+main .section-popular {
+  min-height: 500px;
+  background-color: #071c4d;
+  margin-top: -37px;
+  padding: 100px 0;
+}
+main .section-popular .section-popular-heading {
+  color: #ffffff;
+}
+main .section-popular .section-popular-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+main .section-popular .section-popular-heading p {
+  font-size: 18px;
+}
+main .section-popular-content {
+  margin-top: -190px;
+}
+main .section-popular-content .section-popular-travel {
+  width: 260px;
+  height: 380px;
+  background-size: cover;
+  color: #ffffff;
+}
+main .section-popular-content .section-popular-travel .btn-view-details {
+  background-color: #fc7205;
+  color: #ffffff;
+}
+main .section-popular-content .section-popular-travel .btn-view-details:hover {
+  background-color: #ff8c30;
+  color: #ffffff;
+}
+@media (max-width: 1024px) {
+  main .section-networks .section-networks-heading {
+    flex: 1;
+    text-align: center;
+  }
+  main .section-networks .section-networks-logo {
+    display: flex;
+    justify-content: center;
+    width: -webkit-fill-available;
+  }
+}
+main .section-networks h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+main .section-networks p {
+  font-size: 18px;
+}
+main .section-networks img {
+  max-width: 200px;
+  margin: 10px 0;
+}
+main .section-testimonial h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+main .section-testimonial p {
+  font-size: 18px;
+}
+main .section-testimonial .card-testimonial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 21rem;
+}
+main .section-testimonial img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+main .section-testimonial .btn-need-help {
+  background-color: #a6a5a5;
+  color: #232323;
+}
+main .section-testimonial .btn-need-help:hover {
+  background-color: #c4c3c3;
+  color: #232323;
+}
+main .section-testimonial .btn-get-started {
+  background-color: #fc7205;
+  color: #ffffff;
+}
+main .section-testimonial .btn-get-started:hover {
+  background-color: #ff8c30;
+  color: #ffffff;
+}
+main .section-details-header {
+  margin-top: -60px;
+  min-height: 310px;
+  background-color: #e4e6e8;
+}
+main .section-details-content {
+  margin-top: -210px;
+  min-height: 100vh;
+}
+main .section-details-content .breadcrumb {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 30px;
+}
+main .section-details-content .breadcrumb-item.active {
+  color: #071c4d;
+  font-weight: bold;
+}
+main .section-details-content .gallery .xzoom-container {
+  display: block;
+}
+main .section-details-content .gallery .xzoom-container .xzoom {
+  width: 100%;
+  box-shadow: none;
+  margin-bottom: 10px;
+}
+main .section-details-content .gallery .xzoom-container .xactive {
+  border: 4px solid #1abc9c;
+}
+main .section-details-content .card-right img {
+  width: 50px;
+  border-radius: 100%;
+  margin-right: 15px;
+}
+main .section-details-content .card-right .members-plus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: #1abc9c;
+  border-radius: 100%;
+  font-weight: bold;
+}
+main .section-details-content .card-right .btn-join {
+  background-color: #fc7205;
+  color: #ffffff;
+  border-radius: 0;
+  padding: 10px;
+}
+main .section-details-content .card-right .btn-join:hover {
+  background-color: #ff8c30;
+  color: #ffffff;
+}
+main .section-details-content .user-going img {
+  width: 50px;
+  border-radius: 100%;
+  margin-right: 15px;
+}
+main .section-details-content .btn-add-member {
+  background-color: #071c4d;
+  color: #ffffff;
+}
+main .section-details-content .btn-payment {
+  background-color: #fc7205;
+  color: #ffffff;
+  border-radius: 0;
+  padding: 10px;
+}
+main .section-details-content .btn-payment:hover {
+  background-color: #ff8c30;
+  color: #ffffff;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+footer ul li a {
+  text-decoration: none;
+  color: #071c4d;
+}/*# sourceMappingURL=main.css.map */
