@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Client\DetailController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Client\CheckoutController;
-use App\Http\Controllers\Client\DetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,10 @@ Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('c
 
 // Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
 Route::prefix('admin')
+  ->middleware(['auth', 'admin'])
   ->group(function() {
       Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
   });
+
+Auth::routes();
+
