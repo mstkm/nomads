@@ -32,9 +32,17 @@
             <a class="nav-link" href="#testimonial">Testimonial</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <button class="btn btn-login" type="submit">Masuk</button>
+        @guest
+        <div class="d-flex">
+          <button class="btn btn-login" type="submit" onclick="event.preventDefault(); location.href='/login'">Masuk</button>
+        </div>
+        @endguest
+        @auth
+        <form class="d-flex" action="/logout" method="post">
+          @csrf
+          <button type="submit" class="btn btn-login" href="#">Logout</button>
         </form>
+        @endauth
       </div>
     </div>
   </nav>
