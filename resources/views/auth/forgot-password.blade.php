@@ -26,6 +26,9 @@
       <div class="mt-4">
         <button class="btn btn-primary w-100" type="submit">Send Email Reset Password Link</button>
       </div>
+        @if(session()->has('status'))
+          <p class="text-success mt-2 text-center">{{ session('status') }}</p>
+        @endif
     </form>
   </div>
 </body>
