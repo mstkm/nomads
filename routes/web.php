@@ -1,20 +1,17 @@
 <?php
 
-
-use Illuminate\Support\Str;
-use Illuminate\Http\Client\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Database\Schema\Blueprint;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Client\DetailController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Client\CheckoutController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +30,26 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Register
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
+Route::get('/email/verify', function () {
+  return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (Request $request,) {
+  User::where('id', $request->id)->update(['email_verified_at' => date(now())]);
+
+  session()->flash('success', 'Email verification successfull. Please login!');
+
+  return redirect('login');
+})->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+  $request->user()->sendEmailVerificationNotification();
+
+  return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 // Login/Logout
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/logout', [LoginController::class, 'logoutNotFound']);
@@ -54,7 +68,7 @@ Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'
 Route::get('/detail', [DetailController::class, 'index'])->name('detail');
 
 // Checkout
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout')->middleware(['auth', 'verified']);;
 Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout-success');
 
 // Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');

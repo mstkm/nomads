@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 
 class RegisterController extends Controller
 {
@@ -22,7 +24,9 @@ class RegisterController extends Controller
       $validateData['password'] = Hash::make($validateData['password']);
       $validateData['is_admin'] = 0;
 
-      User::create($validateData);
+      $user = User::create($validateData);
+
+      event(new Registered($user));
 
       session()->flash('success', 'Registration successfull. Please login!');
 
