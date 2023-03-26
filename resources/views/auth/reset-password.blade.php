@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="{{ url('./frontend/libraries/bootstrap/css/bootstrap.css') }}" type="text/css"/>
 </head>
 <body>
-  <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="container d-lg-flex justify-content-center align-items-center" style="height: 100vh;">
     <form action="/reset-password" method="post" class="col-lg-4">
       @csrf
       <img src="{{ url('/frontend/images/nomads_logo/drawable-xhdpi/logo_nomads.png') }}" alt="nomads_logo" class="img-fluid mx-auto d-block mb-2" width="200">

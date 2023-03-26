@@ -8,14 +8,19 @@
   <link rel="stylesheet" href="{{ url('./frontend/libraries/bootstrap/css/bootstrap.css') }}" type="text/css"/>
 </head>
 <body>
-  <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="container d-lg-flex justify-content-center align-items-center" style="height: 100vh;">
     <form action="/forgot-password" method="post" class="col-lg-4">
       @csrf
       <img src="{{ url('/frontend/images/nomads_logo/drawable-xhdpi/logo_nomads.png') }}" alt="nomads_logo" class="img-fluid mx-auto d-block mb-2" width="200">
       <h1 class="text-center mb-3">Forgot Password</h1>
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input name="email" type="email" class="form-control" id="email" placeholder="Input your email">
+        <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Input your email" value="{{ old('email') }}" autofocus>
+        @error('email')
+          <div class="invalid-feedback ">
+            {{ $message }}
+          </div>
+        @enderror
       </div>
 
       <div class="mt-4">

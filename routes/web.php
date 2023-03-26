@@ -14,6 +14,7 @@ use App\Http\Controllers\Client\DetailController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Client\CheckoutController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,10 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Register
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
 
 // Login/Logout
 Route::get('/login', [LoginController::class, 'index'])->name('login');
