@@ -11,4 +11,8 @@ class TravelPackage extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = ['id'];
+
+    protected $hidden = [];
+
+
 }
