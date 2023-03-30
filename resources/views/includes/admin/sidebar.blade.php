@@ -25,7 +25,7 @@
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="{{ url('admin/gallery') }}">
         <i class="fas fa-fw fa-images"></i>
         <span>Gallery Travel</span></a>
   </li>

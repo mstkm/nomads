@@ -2,13 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\TravelPackage;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Gallery extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $guarded = ['id'];
+
+    public function travel_package() : BelongsTo
+    {
+      return $this->belongsTo(TravelPackage::class, 'travel_package_id', 'id');
+    }
 }

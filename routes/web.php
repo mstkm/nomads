@@ -8,11 +8,10 @@ use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Client\DetailController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\TravelPackageController;
 use App\Http\Controllers\Client\CheckoutController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-
-use function Pest\Laravel\get;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,5 +78,7 @@ Route::prefix('admin')
       Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
       Route::resource('travel-package', TravelPackageController::class);
+
+      Route::resource('gallery', GalleryController::class);
   });
 

@@ -6,7 +6,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\TravelPackage;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\TravelPackageRequest;
+use App\Http\Requests\Admin\TravelPackageRequest;
 
 class TravelPackageController extends Controller
 {
