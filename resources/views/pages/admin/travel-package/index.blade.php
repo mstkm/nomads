@@ -39,7 +39,7 @@
             <td>{{ $travelPackage->departure_date }}</td>
             <td>
               <a href="travel-package/{{ $travelPackage->id }}/edit" class="btn btn-sm btn-warning"><i class="fas fa-pen fa-sm fa-fw text-light"></i></a>
-              <form action="#" class="d-inline">
+              <form action="{{ route('travel-package.destroy', $travelPackage->id) }}" method="post" class="d-inline">
                 @csrf
                 @method('delete')
                 <button class="btn btn-sm btn-danger" type="submit"><i class="fas fa-trash-alt fa-sm fa-fw text-light"></i></button>
