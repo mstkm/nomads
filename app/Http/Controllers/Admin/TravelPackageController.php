@@ -53,15 +53,27 @@ class TravelPackageController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $travelPackage = TravelPackage::findOrFail($id);
+
+        return view('pages.admin.travel-package.edit', [
+          'travelPackage' => $travelPackage
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+      $data = $request->all();
+      $slug = Str::slug($request->title);
+      $data['slug'] = $slug;
+
+      $travelPackage = TravelPackage::findOrFail($id);
+
+      $travelPackage->update($data);
+
+      return redirect('admin/travel-package')->with('success', 'Paket travel berhasil diupdate!');
     }
 
     /**

@@ -2,7 +2,7 @@
 
 @section('content')
   <!-- Begin Page Content -->
-  <div class="container">
+  <div class="container px-4">
     <div class="d-flex align-items-center justify-content-between ">
       <div>
         <h1 class="m-0">Paket Travel</h1>
@@ -13,9 +13,8 @@
     </div>
 
     @if (session()->has('success'))
-      <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+      <div class="alert alert-success fade show mt-4" role="alert">
         {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     @endif
 
@@ -38,7 +37,14 @@
             <td>{{ $travelPackage->location }}</td>
             <td>{{ $travelPackage->type }}</td>
             <td>{{ $travelPackage->departure_date }}</td>
-            <td></td>
+            <td>
+              <a href="travel-package/{{ $travelPackage->id }}/edit" class="btn btn-sm btn-warning"><i class="fas fa-pen fa-sm fa-fw text-light"></i></a>
+              <form action="#" class="d-inline">
+                @csrf
+                @method('delete')
+                <button class="btn btn-sm btn-danger" type="submit"><i class="fas fa-trash-alt fa-sm fa-fw text-light"></i></button>
+              </form>
+            </td>
           </tr>
         @empty
           <tr>
