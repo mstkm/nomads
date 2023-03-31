@@ -8,7 +8,7 @@
         <h1 class="m-0">Gallery</h1>
       </div>
       <div>
-        <a href="#" class="btn btn-primary"><i class="fas fa-plus fa-sm fa-fw mr-2 text-light"></i> Add Gallery</a>
+        <a href="{{ route('gallery.create') }}" class="btn btn-primary"><i class="fas fa-plus fa-sm fa-fw mr-2 text-light"></i> Add Gallery</a>
       </div>
     </div>
 
@@ -24,10 +24,10 @@
       <tbody>
         @forelse ($galleries as $gallery)
           <tr>
-            <td></td>
-            <td></td>
-            <td><img src="{{ Storage::url($gallery->image) }}" alt="{{ $gallery->image }}" class="img-thumbnail"></td>
-            <td>
+            <td class="align-middle">{{ $gallery->id }}</td>
+            <td class="align-middle">{{ $gallery->travel_package->title }}</td>
+            <td class="align-middle"><img src="{{ Storage::url($gallery->image) }}" alt="{{ $gallery->image }}" class="img-thumbnail" width="100"></td>
+            <td class="align-middle">
               <a href="#" class="btn btn-sm btn-warning"><i class="fas fa-pen fa-sm fa-fw text-light"></i></a>
               <form action="" method="post" class="d-inline">
                 @csrf

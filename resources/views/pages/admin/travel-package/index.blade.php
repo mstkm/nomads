@@ -32,12 +32,12 @@
       <tbody>
         @forelse ($travelPackages as $travelPackage)
           <tr>
-            <td>{{ $loop->iteration }}</td>
-            <td>{{ $travelPackage->title }}</td>
-            <td>{{ $travelPackage->location }}</td>
-            <td>{{ $travelPackage->type }}</td>
-            <td>{{ $travelPackage->departure_date }}</td>
-            <td>
+            <td class="align-middle">{{ $travelPackage->id }}</td>
+            <td class="align-middle">{{ $travelPackage->title }}</td>
+            <td class="align-middle">{{ $travelPackage->location }}</td>
+            <td class="align-middle">{{ $travelPackage->type }}</td>
+            <td class="align-middle">{{ $travelPackage->departure_date }}</td>
+            <td class="align-middle">
               <a href="travel-package/{{ $travelPackage->id }}/edit" class="btn btn-sm btn-warning"><i class="fas fa-pen fa-sm fa-fw text-light"></i></a>
               <form action="{{ route('travel-package.destroy', $travelPackage->id) }}" method="post" class="d-inline">
                 @csrf

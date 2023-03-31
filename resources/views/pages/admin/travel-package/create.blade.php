@@ -22,7 +22,7 @@
     {{-- End Handle Error --}}
 
     {{-- Form input --}}
-    <form action="{{ url('admin/travel-package') }}" method="POST" class="my-4">
+    <form action="{{ route('travel-package.store') }}" method="POST" class="my-4">
       @csrf
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
