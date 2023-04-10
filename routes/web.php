@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Client\DetailController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\TravelPackageController;
 use App\Http\Controllers\Client\CheckoutController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
@@ -80,5 +81,7 @@ Route::prefix('admin')
       Route::resource('travel-package', TravelPackageController::class);
 
       Route::resource('gallery', GalleryController::class);
+
+      Route::resource('transaction', TransactionController::class);
   });
 
