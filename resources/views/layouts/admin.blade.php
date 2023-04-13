@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>Nomads Admin</title>
-
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @include('includes.admin.style')
 
 </head>
