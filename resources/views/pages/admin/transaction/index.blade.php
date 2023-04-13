@@ -32,8 +32,8 @@
             <td class="align-middle">{{ $transaction->transaction_status }}</td>
             <td class="align-middle">
               <a href="{{ route('transaction.show', $transaction->id) }}" class="btn btn-sm btn-primary"><i class="fas fa-eye fa-sm fa-fw text-light"></i></a>
-              <a href="#" class="btn btn-sm btn-warning"><i class="fas fa-pen fa-sm fa-fw text-light"></i></a>
-              <form action="#" method="post" class="d-inline">
+              <a href="{{ route('transaction.edit', $transaction->id) }}" class="btn btn-sm btn-warning"><i class="fas fa-pen fa-sm fa-fw text-light"></i></a>
+              <form action="{{ route('transaction.destroy', $transaction->id) }}" method="post" class="d-inline">
                 @csrf
                 @method('delete')
                 <button class="btn btn-sm btn-danger" type="submit"><i class="fas fa-trash-alt fa-sm fa-fw text-light"></i></button>
@@ -42,7 +42,7 @@
           </tr>
         @empty
           <tr>
-            <td class="text-center" colspan="6">No data.</td>
+            <td class="text-center" colspan="7">No data.</td>
           </tr>
         @endforelse
       </tbody>

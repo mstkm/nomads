@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\TransactionRequest;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        // return view('pages.admin.transaction.create');
     }
 
     /**
@@ -43,7 +44,13 @@ class TransactionController extends Controller
      */
     public function show(string $id)
     {
-        return view('pages.admin.transaction.show');
+        $transaction = Transaction::with([
+          'details', 'travel_package', 'user'
+        ])->findOrFail($id);
+
+        return view('pages.admin.transaction.detail', [
+          'transaction' => $transaction
+        ]);
     }
 
     /**
@@ -51,15 +58,27 @@ class TransactionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $transaction = Transaction::with([
+          'details', 'travel_package', 'user'
+        ])->findOrFail($id);
+
+        return view('pages.admin.transaction.edit', [
+          'transaction' => $transaction
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(TransactionRequest $request, string $id)
     {
-        //
+      $data = $request->all();
+
+      $transaction = Transaction::findOrFail($id);
+
+      $transaction->update($data);
+
+      return redirect()->route('transaction.index');
     }
 
     /**
@@ -67,6 +86,10 @@ class TransactionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $transaction = Transaction::findOrFail($id);
+
+        $transaction->delete();
+
+        return redirect()->route('transaction.index');
     }
 }
