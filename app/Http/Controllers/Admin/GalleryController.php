@@ -7,6 +7,8 @@ use App\Http\Requests\Admin\GalleryRequest;
 use App\Models\Gallery;
 use App\Models\TravelPackage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class GalleryController extends Controller
 {
@@ -85,6 +87,12 @@ class GalleryController extends Controller
     public function destroy(string $id)
     {
       $gallery = Gallery::findOrFail($id);
+
+      if (File::exists(public_path('storage/'.$gallery->image))) {
+        File::delete(public_path('storage/'.$gallery->image));
+      };
+      // Storage::delete($gallery->image);
+
       $gallery->delete();
 
       return redirect()->route('gallery.index');
