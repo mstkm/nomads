@@ -8,7 +8,7 @@
     <div class="bg-modal"></div>
     <h1>Explore The Beautiful World <br>As Easy One Click</h1>
     <p class="mt-4">You will see beautiful <br>moment you never see before</p>
-    <a href="#" class="btn btn-get-started mt-4 px-4">Get Started</a>
+    <a href="#popular" class="btn btn-get-started mt-4 px-4">Get Started</a>
   </header>
 
   <!-- Main -->
@@ -54,44 +54,18 @@
     </section>
     <section class="section-popular-content pb-5" id="popular-content">
       <div class="container d-flex justify-content-around flex-wrap">
-        <div class="section-popular-travel d-flex flex-column rounded mb-3" style="background-image: url('./frontend/images/popular1.jpg');">
-          <div class="flex-grow-1 text-center py-4">
-            <p class="m-0 fs-5">Indonesia</p>
-            <p class="m-0 fs-5 fw-bold">DERATAN, BALI</p>
+        @foreach ($travel_packages as $travel_package)
+          <div class="section-popular-travel d-flex flex-column rounded mb-3 position-relative" style="background-image: url({{ 'storage/'.$travel_package->galleries->first()->image }});">
+            <div class="bg-dark w-100 h-100 opacity-25 position-absolute rounded"></div>
+            <div class="flex-grow-1 text-center py-4 z-3">
+              <p class="m-0 fs-5">{{ $travel_package->title }}</p>
+              <p class="m-0 fs-5 fw-bold">{{ $travel_package->location }}</p>
+            </div>
+            <div class="d-flex justify-content-center py-4 z-3">
+              <a href="{{ route('detail', $travel_package->slug) }}" class="btn btn-view-details px-4">View Details</a>
+            </div>
           </div>
-          <div class="d-flex justify-content-center py-4">
-            <a href="#" class="btn btn-view-details px-4">View Details</a>
-          </div>
-        </div>
-        <div class="section-popular-travel d-flex flex-column rounded mb-3" style="background-image: url('./frontend/images/popular2.jpg');">
-          <div class="flex-grow-1 text-center py-4">
-            <p class="m-0 fs-5">Indonesia</p>
-            <p class="m-0 fs-5 fw-bold">BROMO, MALANG</p>
-          </div>
-          <div class="d-flex justify-content-center py-4">
-            <a href="#" class="btn btn-view-details px-4">View Details</a>
-          </div>
-        </div>
-        <div class="section-popular-travel d-flex flex-column rounded mb-3"
-        style="background-image: url('./frontend/images/popular3.jpg');">
-          <div class="flex-grow-1 text-center py-4">
-            <p class="m-0 fs-5">Indonesia</p>
-            <p class="m-0 fs-5 fw-bold">NUSA PENIDA, BALI</p>
-          </div>
-          <div class="d-flex justify-content-center py-4">
-            <a href="{{ route('detail') }}" class="btn btn-view-details px-4">View Details</a>
-          </div>
-        </div>
-        <div class="section-popular-travel d-flex flex-column rounded mb-3"
-        style="background-image: url('./frontend/images/popular4.jpg');">
-          <div class="flex-grow-1 text-center py-4">
-            <p class="m-0 fs-5">Midle East</p>
-            <p class="m-0 fs-5 fw-bold">DUBAI, UEA</p>
-          </div>
-          <div class="d-flex justify-content-center py-4">
-            <a href="#" class="btn btn-view-details px-4">View Details</a>
-          </div>
-        </div>
+        @endforeach
       </div>
     </section>
 
@@ -157,7 +131,7 @@
       </div>
       <div class="d-flex justify-content-center py-5">
         <a href="#" class="btn btn-need-help mx-3 px-4">I Need Help</a>
-        <a href="#" class="btn btn-get-started mx-3 px-4">Get Started</a>
+        <a href="{{ route('register') }}" class="btn btn-get-started mx-3 px-4">Get Started</a>
       </div>
     </section>
   </main>

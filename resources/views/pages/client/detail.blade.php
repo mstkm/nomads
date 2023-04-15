@@ -25,30 +25,22 @@
     <div class="row">
       <div class="col-lg-8 pl-lg-0 mb-3">
         <div class="card card-details p-4">
-          <h1>Nusa Penida</h1>
-          <p>Indonesia</p>
+          <h1>{{ $travel_package->title }}</h1>
+          <p>{{ $travel_package->location }}</p>
           <div class="gallery">
             <div class="xzoom-container">
-              <img src="./frontend/images/nusa1.jpg" class="xzoom" id="xzoom-default" xoriginal="./frontend/images/nusa1.jpg">
+              <img src="{{ url('storage/'.$galleries[0]->image) }}" class="xzoom" id="xzoom-default" xoriginal="{{ url('storage/'.$galleries[0]->image) }}">
             </div>
             <div class="xzoom-thumbs">
-              <a href="./frontend/images/nusa1.jpg">
-                <img src="./frontend/images/nusa1.jpg" class="xzoom-gallery" width="128" xpreview="./frontend/images/nusa1.jpg">
-              </a>
-              <a href="./frontend/images/nusa2.jpg">
-                <img src="./frontend/images/nusa2.jpg" class="xzoom-gallery" width="128" xpreview="./frontend/images/nusa2.jpg">
-              </a>
-              <a href="./frontend/images/nusa3.jpg">
-                <img src="./frontend/images/nusa3.jpg" class="xzoom-gallery" width="128" xpreview="./frontend/images/nusa3.jpg">
-              </a>
-              <a href="./frontend/images/nusa4.jpg">
-                <img src="./frontend/images/nusa4.jpg" class="xzoom-gallery" width="128" xpreview="./frontend/images/nusa4.jpg">
-              </a>
+              @foreach ($galleries as $gallery)
+                <a href="{{ url('storage/'.$gallery->image) }}">
+                  <img src="{{ url('storage/'.$gallery->image) }}" class="xzoom-gallery" width="128" xpreview="{{ url('storage/'.$gallery->image) }}">
+                </a>
+              @endforeach
             </div>
           </div>
           <h2>Tentang Wisata</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>{{ $travel_package->description }}</p>
           <div class="features row mt-4">
             <div class="col-md-4 d-flex align-items-center">
               <div class="d-flex justify-content-center align-items-center pe-3">
@@ -56,7 +48,7 @@
               </div>
               <div>
                 <h4>Featured Event</h4>
-                <p>Tari Kecak</p>
+                <p>{{ $travel_package->featured_event }}</p>
               </div>
             </div>
             <div class="col-md-4 d-flex align-items-center">
@@ -65,7 +57,7 @@
               </div>
               <div>
                 <h4>Language</h4>
-                <p>Bahasa Indonesia</p>
+                <p>{{ $travel_package->language }}</p>
               </div>
             </div>
             <div class="col-md-4 d-flex align-items-center">
@@ -74,7 +66,7 @@
               </div>
               <div>
                 <h4>Foods</h4>
-                <p>Local foods</p>
+                <p>{{ $travel_package->foods }}</p>
               </div>
             </div>
           </div>
@@ -94,23 +86,30 @@
               <h5 class="fw-bold mb-3">Trip Informations</h5>
               <div class="d-flex justify-content-between">
                 <p class="mb-2">Date of Departure</p>
-                <p class="mb-2">22 Aug, 2022</p>
+                <p class="mb-2">{{ date_format(date_create($travel_package->departure_date), 'F j, Y') }}</p>
               </div>
               <div class="d-flex justify-content-between">
                 <p class="mb-2">Duration</p>
-                <p  class="mb-2">4D 3N</p>
+                <p  class="mb-2">{{ $travel_package->duration }}</p>
               </div>
               <div class="d-flex justify-content-between">
                 <p class="mb-2">Type</p>
-                <p class="mb-2">Open Trip</p>
+                <p class="mb-2">{{ $travel_package->type }}</p>
               </div>
               <div class="d-flex justify-content-between">
                 <p class="mb-2">Price</p>
-                <p class="mb-2">$80 / person</p>
+                <p class="mb-2">${{ $travel_package->price }},00 / person</p>
               </div>
             </div>
           </div>
-          <a href="{{ route('checkout') }}" class="btn btn-join">Join Now</a>
+          @auth
+            <form action="#" method="post">
+              <button class="btn btn-join d-block w-100" type="submit">Join Now</button>
+            </form>
+          @endauth
+          @guest
+            <a href="{{ route('login') }}" class="btn btn-join">Login or Register to Join</a>
+          @endguest
         </div>
       </div>
     </div>

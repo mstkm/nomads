@@ -29,7 +29,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Register
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/email/verify', function () {
   return view('auth.verify-email');
@@ -66,7 +66,7 @@ Route::get('/reset-password/{token}', function (string $token) {
 Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->middleware('guest')->name('password.update');
 
 // Detail
-Route::get('/detail', [DetailController::class, 'index'])->name('detail');
+Route::get('/detail/{slug}', [DetailController::class, 'index'])->name('detail');
 
 // Checkout
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout')->middleware(['auth', 'verified']);;
