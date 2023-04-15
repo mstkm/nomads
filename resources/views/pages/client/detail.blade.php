@@ -103,7 +103,8 @@
             </div>
           </div>
           @auth
-            <form action="#" method="post">
+            <form action="{{ route('checkout-proccess', $travel_package->id) }}" method="post">
+              @csrf
               <button class="btn btn-join d-block w-100" type="submit">Join Now</button>
             </form>
           @endauth

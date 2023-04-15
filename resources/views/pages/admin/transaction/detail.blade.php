@@ -59,13 +59,15 @@
                   <th>Visa</th>
                   <th>DOE Passport</th>
                 </tr>
-                <tr>
-                  <td>{{ $transaction->user->id }}</td>
-                  <td>{{ $transaction->user->name }}</td>
-                  <td>{{ $transaction->details[0]->nationality }}</td>
-                  <td>{{ $transaction->details[0]->is_visa ? '30 Days' : 'N/A' }}</td>
-                  <td>{{ $transaction->details[0]->doe_passport }}</td>
-                </tr>
+                @foreach ($transaction->details as $detail)
+                  <tr>
+                    <td>{{ $detail->id }}</td>
+                    <td>{{ $detail->name }}</td>
+                    <td>{{ $detail->nationality }}</td>
+                    <td>{{ $detail->is_visa ? '30 Days' : 'N/A' }}</td>
+                    <td>{{ $detail->doe_passport }}</td>
+                  </tr>
+                @endforeach
               </table>
             </td>
           </tr>

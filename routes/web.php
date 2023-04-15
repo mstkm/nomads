@@ -69,8 +69,15 @@ Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'
 Route::get('/detail/{slug}', [DetailController::class, 'index'])->name('detail');
 
 // Checkout
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout')->middleware(['auth', 'verified']);;
-Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout-success');
+Route::get('/checkout/{id}', [CheckoutController::class, 'index'])->name('checkout')->middleware(['auth', 'verified']);
+
+Route::post('/checkout/{id}', [CheckoutController::class, 'proccess'])->name('checkout-proccess')->middleware(['auth', 'verified']);
+
+Route::post('/checkout/create/{detail_id}', [CheckoutController::class, 'create'])->name('checkout-create')->middleware(['auth', 'verified']);
+
+Route::get('/checkout/remove/{detail_id}', [CheckoutController::class, 'remove'])->name('checkout-remove')->middleware(['auth', 'verified']);
+
+Route::get('/checkout/success/{detail_id}', [CheckoutController::class, 'success'])->name('checkout-success')->middleware(['auth', 'verified']);
 
 // Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
 Route::prefix('admin')
