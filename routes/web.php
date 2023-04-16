@@ -91,4 +91,3 @@ Route::prefix('admin')
 
       Route::resource('transaction', TransactionController::class);
   });
-

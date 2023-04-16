@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Mail\TransactionSuccess;
 use App\Models\Transaction;
 use App\Models\TransactionDetail;
 use App\Models\TravelPackage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
@@ -92,6 +94,12 @@ class CheckoutController extends Controller
       $transaction->transaction_status = 'PENDING';
 
       $transaction->save();
+
+      // Kirim email e-ticket
+
+      // return $transaction->travel_package;
+
+      Mail::to($request->user())->send(new TransactionSuccess($transaction));
 
       return view('pages.client.success');
     }
