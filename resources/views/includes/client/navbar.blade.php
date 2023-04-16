@@ -16,7 +16,7 @@
             <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="{{ route('home') }}">Home</a>
           </li>
           <li class="nav-item pe-5">
-            <a class="nav-link {{ Request::is('detail') ? 'active' : '' }}" href="#">Paket Travel</a>
+            <a class="nav-link {{ Request::is('detail') ? 'active' : '' }}" href="/#popular">Paket Travel</a>
           </li>
           <li class="nav-item pe-5 dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
